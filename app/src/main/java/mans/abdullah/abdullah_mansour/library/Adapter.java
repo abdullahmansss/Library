@@ -7,12 +7,16 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
+import android.widget.ImageView;
 import android.widget.TextView;
+
+import com.squareup.picasso.Picasso;
 
 import java.util.ArrayList;
 
 public class Adapter extends ArrayAdapter <DataClass> {
     TextView book_title,author_name;
+    ImageView book_image;
 
     public Adapter(@NonNull Context context, int resource, ArrayList<DataClass> books) {
         super(context, resource, books);
@@ -37,9 +41,17 @@ public class Adapter extends ArrayAdapter <DataClass> {
 
         book_title = (TextView) view.findViewById(R.id.book_title);
         author_name = (TextView) view.findViewById(R.id.author_name);
+        book_image = (ImageView) view.findViewById(R.id.book_image);
 
         book_title.setText(dataClass.getBook_title());
         author_name.setText(dataClass.getAuthor_name());
+
+        Picasso.get()
+                .load(dataClass.getImage_url())
+                .placeholder(R.drawable.agenda)
+                .resize(80, 80)
+                .centerCrop()
+                .into(book_image);
 
         return view;
     }

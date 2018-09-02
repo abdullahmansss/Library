@@ -1,11 +1,11 @@
 package mans.abdullah.abdullah_mansour.library;
 
 public class DataClass {
-    String book_title,author_name;
-
-    public DataClass(String book_title, String author_name) {
+    String book_title,author_name,image_url;
+    public DataClass(String book_title, String author_name, String image_url) {
         this.book_title = book_title;
         this.author_name = author_name;
+        this.image_url = image_url;
     }
 
     public String getBook_title() {
@@ -22,5 +22,13 @@ public class DataClass {
 
     public void setAuthor_name(String author_name) {
         this.author_name = author_name;
+    }
+
+    public String getImage_url() {
+        return image_url;
+    }
+
+    public void setImage_url(String image_url) {
+        this.image_url = image_url;
     }
 }

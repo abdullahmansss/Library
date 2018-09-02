@@ -13,11 +13,14 @@
         android:id="@+id/edit_txt_book"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:hint="Enter Book Name"
         android:textSize="25sp"
         android:textColor="#000"
         android:layout_marginBottom="5dp"
         android:layout_marginTop="5dp"
+        android:drawableLeft="@drawable/search"
+        android:drawablePadding="10dp"
+        android:layout_marginRight="10dp"
+        android:layout_marginLeft="10dp"
         />
 
     <Button
@@ -35,7 +38,7 @@
         android:layout_marginBottom="5dp"
         tools:listitem="@layout/list_item"
         android:dividerHeight="1dp"
-        android:divider="@color/colorPrimary"
+        android:divider="#000"
         android:layout_marginLeft="5dp"
         android:layout_marginRight="5dp"
         />

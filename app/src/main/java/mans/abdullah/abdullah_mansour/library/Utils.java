@@ -21,7 +21,7 @@ public class Utils {
 
     public static final String LOG_TAG = Utils.class.getSimpleName();
 
-    /*public static ArrayList<DataClass> fetchBooksData(String requestUrl) {
+    public static ArrayList<DataClass> fetchBooksData(String requestUrl) {
         // Create URL object
         URL url = createUrl(requestUrl);
 
@@ -38,7 +38,7 @@ public class Utils {
 
         // Return the {@link Event}
         return book;
-    }*/
+    }
 
     // Returns new URL object from the given string URL.
     private static URL createUrl(String stringUrl)
@@ -169,15 +169,16 @@ public class Utils {
                 // String to get book title
                 String title = info.getString("title");
                 // JSONArray to get author name
-                JSONArray authorarray = info.getJSONArray("authors");
+                //JSONArray authorarray = info.getJSONArray("authors");
                 // loop to get all items in authorarray
-                for (int a =0; a < authorarray.length(); a ++)
-                {
-                    // String to get author name
-                    String auth = authorarray.getString(a);
-                    // add data to ArrayList
-                    books.add(new DataClass(title,auth));
-                }
+
+                String pup = info.getString("publisher");
+
+                JSONObject imageurl = info.getJSONObject("imageLinks");
+
+                String thumbnail = imageurl.getString("thumbnail");
+
+                books.add(new DataClass(title,pup,thumbnail));
             }
         } catch (JSONException e) {
             Log.e(LOG_TAG, "Problem parsing the earthquake JSON results", e);
