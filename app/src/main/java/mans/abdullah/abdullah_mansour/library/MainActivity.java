@@ -9,6 +9,7 @@ import android.view.WindowManager;
 import android.view.inputmethod.InputMethodManager;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageView;
 import android.widget.ListView;
 
 import java.util.ArrayList;
@@ -19,6 +20,7 @@ public class MainActivity extends AppCompatActivity {
     ListView listView;
     Adapter adapter;
     String GOOGLE_BOOKS_API;
+    ImageView agenda;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -28,6 +30,7 @@ public class MainActivity extends AppCompatActivity {
         book_title = (EditText) findViewById(R.id.edit_txt_book);
         search = (Button) findViewById(R.id.search_btn);
         listView = (ListView) findViewById(R.id.listview);
+        agenda = (ImageView) findViewById(R.id.agenda);
 
         adapter = new Adapter(getApplicationContext(),0 , new ArrayList<DataClass>());
 
@@ -36,6 +39,8 @@ public class MainActivity extends AppCompatActivity {
         search.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                agenda.setVisibility(View.INVISIBLE);
+
                 String s = book_title.getText().toString();
 
                 GOOGLE_BOOKS_API =
