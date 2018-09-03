@@ -18,6 +18,7 @@
         android:layout_marginBottom="5dp"
         android:layout_marginTop="5dp"
         android:drawableLeft="@drawable/search"
+        android:drawableTint="@color/colorPrimaryDark"
         android:drawablePadding="10dp"
         android:layout_marginRight="10dp"
         android:layout_marginLeft="10dp"
@@ -29,6 +30,11 @@
         android:layout_height="wrap_content"
         android:text="search"
         android:layout_marginBottom="5dp"
+        android:background="@drawable/circle"
+        android:layout_marginRight="10dp"
+        android:layout_marginLeft="10dp"
+        android:textStyle="bold"
+
         />
 
     <RelativeLayout
@@ -43,8 +49,8 @@
             tools:listitem="@layout/list_item"
             android:dividerHeight="1dp"
             android:divider="#000"
-            android:layout_marginLeft="5dp"
-            android:layout_marginRight="5dp"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="10dp"
             />
 
         <ImageView
@@ -52,8 +58,20 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_centerInParent="true"
-            android:src="@drawable/agenda"
+            android:src="@drawable/notebook"
+            android:layout_margin="50dp"
             android:alpha=".7"
+            />
+
+        <ProgressBar
+            android:id="@+id/progeress_bar"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:indeterminate="true"
+            style="@style/Widget.AppCompat.ProgressBar.Horizontal"
+            android:layout_marginLeft="70dp"
+            android:layout_marginRight="70dp"
             />
 
     </RelativeLayout>

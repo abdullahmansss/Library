@@ -18,6 +18,7 @@ import java.nio.charset.Charset;
 import java.util.ArrayList;
 
 public class Utils {
+    public static  String title,author,publisher,date,description,thumbnail;
 
     public static final String LOG_TAG = Utils.class.getSimpleName();
 
@@ -166,19 +167,64 @@ public class Utils {
                 JSONObject firstitem = itemsArray.getJSONObject(i);
                 // JSONObject to get data from volumeInfo
                 JSONObject info = firstitem.getJSONObject("volumeInfo");
-                // String to get book title
-                String title = info.getString("title");
-                // JSONArray to get author name
-                //JSONArray authorarray = info.getJSONArray("authors");
-                // loop to get all items in authorarray
 
-                String pup = info.getString("publisher");
+                if (info.has("title"))
+                {
+                    // String to get book title
+                    title = info.getString("title");
+                } else
+                    {
+                        title = "Title not Found";
+                    }
 
-                JSONObject imageurl = info.getJSONObject("imageLinks");
+                if (info.has("authors"))
+                {
+                    // String to get book author
+                    author = info.getJSONArray("authors").getString(0);
+                } else
+                {
+                    author = "Author not Found";
+                }
 
-                String thumbnail = imageurl.getString("thumbnail");
+                if (info.has("publisher"))
+                {
+                    // String to get book publisher
+                    publisher = info.getString("publisher");
+                } else
+                {
+                    publisher = "Publisher not Found";
+                }
 
-                books.add(new DataClass(title,pup,thumbnail));
+                if (info.has("publishedDate"))
+                {
+                    // String to get book publisher
+                    date = info.getString("publishedDate");
+                } else
+                {
+                    date = "Published Date not Found";
+                }
+
+                if (info.has("description"))
+                {
+                    // String to get book publisher
+                    description = info.getString("description");
+                } else
+                {
+                    description = "Description not Found";
+                }
+
+                if (info.has("imageLinks"))
+                {
+                    // String to get book image
+                    JSONObject imageurl = info.getJSONObject("imageLinks");
+
+                    thumbnail = imageurl.getString("thumbnail");
+                } else
+                {
+                    thumbnail = "";
+                }
+
+                books.add(new DataClass(title,author,thumbnail,publisher,description,date));
             }
         } catch (JSONException e) {
             Log.e(LOG_TAG, "Problem parsing the earthquake JSON results", e);

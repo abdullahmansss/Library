@@ -46,12 +46,19 @@ public class Adapter extends ArrayAdapter <DataClass> {
         book_title.setText(dataClass.getBook_title());
         author_name.setText(dataClass.getAuthor_name());
 
-        Picasso.get()
+        if (dataClass.getImage_url().length() != 0)
+        {
+            Picasso.get()
                 .load(dataClass.getImage_url())
-                .placeholder(R.drawable.agenda)
+                .placeholder(R.drawable.notebook)
+                .error(R.drawable.notebook)
                 .resize(80, 80)
-                .centerCrop()
                 .into(book_image);
+        } else
+            {
+                book_image.setImageResource(R.drawable.notebook);
+            }
+
 
         return view;
     }

@@ -1,11 +1,15 @@
 package mans.abdullah.abdullah_mansour.library;
 
 public class DataClass {
-    String book_title,author_name,image_url;
-    public DataClass(String book_title, String author_name, String image_url) {
+    String book_title,author_name,image_url,publisher,description,date;
+
+    public DataClass(String book_title, String author_name, String image_url, String publisher, String description, String date) {
         this.book_title = book_title;
         this.author_name = author_name;
         this.image_url = image_url;
+        this.publisher = publisher;
+        this.description = description;
+        this.date = date;
     }
 
     public String getBook_title() {
@@ -30,5 +34,29 @@ public class DataClass {
 
     public void setImage_url(String image_url) {
         this.image_url = image_url;
+    }
+
+    public String getPublisher() {
+        return publisher;
+    }
+
+    public void setPublisher(String publisher) {
+        this.publisher = publisher;
+    }
+
+    public String getDescription() {
+        return description;
+    }
+
+    public void setDescription(String description) {
+        this.description = description;
+    }
+
+    public String getDate() {
+        return date;
+    }
+
+    public void setDate(String date) {
+        this.date = date;
     }
 }
